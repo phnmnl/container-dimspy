@@ -22,11 +22,5 @@ ENV PATH=/miniconda2/bin:${PATH}
 
 RUN conda update -y conda
 
-RUN git clone -b master https://github.com/computational-metabolomics/dimspy /t-dimspy/
+RUN conda install -c conda-forge -c bioconda dimspy
 
-RUN conda create -n dimspy python=2.7 --file /t-dimspy/conda-requirements.txt -c conda-forge -c bioconda
-
-ENV PATH=$PATH:/t-dimspy
-WORKDIR /t-dimspy
-
-ENTRYPOINT ["dimspy/__main__.py"]
