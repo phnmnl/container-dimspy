@@ -12,15 +12,21 @@ LABEL license="https://github.com/phnmnl/container-dimspy"
 LABEL tags="Metabolomics"
 
 RUN apt-get update && \
-	apt-get install -y curl && apt-get install -y bzip2 && apt-get install -y git
-
-RUN curl -LO http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
-RUN bash Miniconda2-latest-Linux-x86_64.sh -p /miniconda2 -b
-RUN rm Miniconda2-latest-Linux-x86_64.sh
+	apt-get install -y --no-install-recommends \ 
+	ca-certificates \
+	curl \
+	bzip2 && \
+	curl -LO http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh && \
+	bash Miniconda2-latest-Linux-x86_64.sh -p /miniconda2 -b && \	
+	rm Miniconda2-latest-Linux-x86_64.sh 
 
 ENV PATH=/miniconda2/bin:${PATH}
 
-RUN conda update -y conda
-
-RUN conda install -c conda-forge -c bioconda dimspy
-
+RUN conda update -y conda && \
+    conda install -c conda-forge -c bioconda dimspy && \
+    apt-get purge -y \
+	ca-certificates \
+	curl \
+	bzip2 && \
+    apt-get -y clean && apt-get -y autoremove && \
+    rm -rf  /var/lib/apt/lists/* /var/lib/{cache,log}/ /tmp/* /var/tmp/*
