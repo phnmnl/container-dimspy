@@ -22,7 +22,7 @@ RUN apt-get update && \
 
 ENV PATH=/miniconda2/bin:${PATH}
 
-RUN conda update -y conda && \
+RUN conda install conda=4.3.31 && \
     conda install -c conda-forge -c bioconda dimspy=1.1.0 && \
     apt-get purge -y \
 	ca-certificates \
