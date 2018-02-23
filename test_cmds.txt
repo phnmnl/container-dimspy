@@ -1,0 +1,2 @@
+which dimspy
+which runTest1.sh
