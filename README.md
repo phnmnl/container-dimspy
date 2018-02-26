@@ -10,7 +10,7 @@ Python package for processing, filtering and analysing direct-infusion mass spec
 
 ## Description
 
-Galaxy tools for Python package DIMSpy: processing, filtering and analysing direct-infusion mass spectrometry-based metabolomics and lipidomics data
+Container for Python package DIMSpy: processing, filtering and analysing direct-infusion mass spectrometry-based metabolomics and lipidomics data
 
 ## Key features
 
@@ -21,6 +21,10 @@ Galaxy tools for Python package DIMSpy: processing, filtering and analysing dire
 - Processing
 - Filtering
 - Analysing
+
+## Instrument Data Types
+
+- MS
 
 ## Tool Authors
  - Ralf J. M. Weber (r.j.weber@bham.ac.uk) - [University of Birmingham (UK)](http://www.birmingham.ac.uk/index.aspx)
@@ -42,26 +46,34 @@ Galaxy tools for Python package DIMSpy: processing, filtering and analysing dire
 
 ## Installation 
 
-For local individual installation:
+DIMSpy is present on all PhenoMeNal Galaxy instances on deployed Cloud Research Environments, under the MS category in the tool bar to the left of the screen. No installation is needed hence on PhenoMeNal Cloud Research Environments.
+
+For advanced Docker usage:
+
+- Go to the directory where the dockerfile is.
+- Create container from dockerfile:
 
 ```bash
-docker pull docker-registry.phenomenal-h2020.eu/phnmnl/container-dimspy
+docker build -t dimspy .
+```
+
+Alternatively, pull from repo:
+
+```bash
+docker pull container-registry.phenomenal-h2020.eu/phnmnl/dimspy
 ```
 
 ## Usage Instructions
 
-For direct docker usage:
+On a PhenoMeNal Cloud Research Environment, go to MS tool category, and then click on DIMSpy.
+
+Advanced usage through docker
 
 ```bash
-docker run docker-registry.phenomenal-h2020.eu/phnmnl/container-dimspy ...
+docker run docker-registry.phenomenal-h2020.eu/phnmnl/dimspy dimspy -h
 ```
 
 ## Publications
-
-<!-- Guidance:
-Use AMA style publications as a list (you can export AMA from PubMed, on the Formats: Citation link when looking at the entry).
-IMPORTANT: Publications sectio must be placed at the end and cannot be emptied!
--->
 
 - Southam, Andrew D and Weber, Ralf J M and Engel, Jasper and Jones, Martin R and Viant, Mark R (2017). A complete workflow for high-resolution spectral-stitching nanoelectrospray direct-infusion mass-spectrometry-based metabolomics and lipidomics. In Nature Protocols, 12 (2), pp. 255–273. doi:10.1038/nprot.2016.156
 
